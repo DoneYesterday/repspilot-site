@@ -3,63 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support — REPS Shield</title>
+<title>Support — REPSPilot</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --green: #00FF6A; --black: #111111; --tan: #F5F0EB;
-    --tan-dark: #EDE8E2; --text: #2A2520; --muted: #5A5450;
-  }
+  :root { --green: #00FF6A; --black: #111111; --tan: #F5F0EB; --tan-dark: #EDE8E2; --text: #2A2520; --muted: #6A6460; }
   body { font-family: 'DM Sans', sans-serif; background: var(--tan); color: var(--text); }
-  nav {
-    background: var(--black); padding: 20px 40px;
-    display: flex; justify-content: space-between; align-items: center;
-    border-bottom: 3px solid var(--green);
-  }
-  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--green); letter-spacing: 3px; text-decoration: none; }
-  nav a { color: #BBBBBB; text-decoration: none; font-size: 14px; font-weight: 600; margin-left: 32px; }
+  nav { background: var(--black); padding: 18px 48px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--green); }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--green); letter-spacing: 4px; text-decoration: none; }
+  .logo span { color: #fff; }
+  nav a { color: #AAA; text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 32px; }
   nav a:hover { color: var(--green); }
-  .page-header {
-    background: var(--black); padding: 60px 40px;
-    border-bottom: 3px solid var(--green); text-align: center;
-  }
-  .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: var(--green); letter-spacing: 4px; }
-  .page-header p { color: #BBBBBB; margin-top: 8px; font-size: 15px; }
-  .content { max-width: 800px; margin: 60px auto; padding: 0 40px 60px; }
-  .contact-card {
-    background: var(--black); border-radius: 16px; padding: 40px;
-    text-align: center; margin-bottom: 60px;
-    border: 2px solid var(--green);
-  }
-  .contact-card h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--green); letter-spacing: 2px; margin-bottom: 12px; }
-  .contact-card p { color: #BBBBBB; font-size: 15px; margin-bottom: 24px; }
-  .contact-card a {
-    background: var(--green); color: var(--black);
-    font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px;
-    padding: 14px 36px; border-radius: 8px; text-decoration: none; display: inline-block;
-  }
-  h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; color: var(--black); margin: 0 0 32px; }
-  .faq-item {
-    background: var(--tan-dark); border-radius: 12px; padding: 24px 28px;
-    margin-bottom: 16px; border: 1px solid #CCC7C0;
-  }
+  .page-header { background: var(--black); padding: 72px 48px; border-bottom: 2px solid var(--green); text-align: center; }
+  .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 60px; color: var(--green); letter-spacing: 4px; }
+  .page-header p { color: #666; margin-top: 8px; font-size: 14px; }
+  .content { max-width: 760px; margin: 64px auto; padding: 0 40px 80px; }
+  .contact-card { background: var(--black); border-radius: 16px; padding: 48px; text-align: center; margin-bottom: 64px; border: 2px solid var(--green); }
+  .contact-card h2 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--green); letter-spacing: 2px; margin-bottom: 12px; }
+  .contact-card p { color: #888; font-size: 15px; margin-bottom: 28px; line-height: 1.7; }
+  .contact-btn { background: var(--green); color: var(--black); font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px; padding: 16px 40px; border-radius: 8px; text-decoration: none; display: inline-block; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 2px; color: var(--black); margin-bottom: 32px; }
+  .faq-item { background: var(--tan-dark); border-radius: 12px; padding: 24px 28px; margin-bottom: 16px; border: 1px solid #D5D0CA; }
   .faq-item h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
-  .faq-item p { font-size: 15px; color: var(--muted); line-height: 1.7; margin: 0; }
-  footer {
-    background: var(--black); padding: 40px; text-align: center;
-    border-top: 3px solid var(--green);
-  }
-  footer .logo { display: block; margin-bottom: 16px; }
-  footer p { color: #666; font-size: 13px; margin-bottom: 8px; }
-  footer a { color: #BBBBBB; text-decoration: none; margin: 0 16px; font-size: 13px; }
+  .faq-item p { font-size: 14px; color: var(--muted); line-height: 1.8; margin: 0; }
+  footer { background: var(--black); padding: 40px; text-align: center; border-top: 2px solid var(--green); }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--green); letter-spacing: 4px; display: block; margin-bottom: 12px; text-decoration: none; }
+  .footer-logo span { color: #fff; }
+  footer p { color: #555; font-size: 13px; margin-bottom: 12px; }
+  footer a { color: #666; text-decoration: none; margin: 0 16px; font-size: 13px; }
   footer a:hover { color: var(--green); }
 </style>
 </head>
 <body>
-
 <nav>
-  <a class="logo" href="index.html">REPS SHIELD</a>
+  <a class="logo" href="index.html">REPS<span>PILOT</span></a>
   <div>
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
@@ -70,32 +47,31 @@
 
 <div class="page-header">
   <h1>Support</h1>
-  <p>We're here to help. Usually respond within 24 hours.</p>
+  <p>We typically respond within 24 hours.</p>
 </div>
 
 <div class="content">
-
   <div class="contact-card">
-    <h2>Contact Support</h2>
-    <p>Have a question, found a bug, or need help with your records? Email us directly.</p>
-    <a href="mailto:support@repsshield.com">EMAIL SUPPORT</a>
+    <h2>Get Help</h2>
+    <p>Have a question, found a bug, or need help with your records?<br>Email us directly — real humans respond.</p>
+    <a href="mailto:support@repspilot.app" class="contact-btn">EMAIL SUPPORT</a>
   </div>
 
-  <h2>Frequently Asked Questions</h2>
+  <h2 class="section-title">Frequently Asked Questions</h2>
 
   <div class="faq-item">
-    <h3>Why does REPS Shield need background location access?</h3>
-    <p>REPS Shield automatically detects when you drive to your rental properties — like Strava tracks runs. Without background location, the app can't detect trips when you're driving and haven't opened the app first. The IRS requires contemporaneous records, which means logging trips as they happen, not reconstructing them later. Background location is the only way to do this reliably.</p>
+    <h3>Why does REPSPilot need background location access?</h3>
+    <p>REPSPilot automatically detects when you drive to your rental properties — like Strava tracks runs. Without background location, the app can't detect trips when you're driving without the app open. The IRS requires contemporaneous records, meaning you need to log trips as they happen. Background location is the only way to do this reliably. Other apps require you to manually log every visit. REPSPilot does it for you.</p>
   </div>
 
   <div class="faq-item">
-    <h3>GPS isn't detecting my trips. What do I do?</h3>
-    <p>First, check your location permissions: go to your phone's Settings → Privacy → Location Services → REPS Shield and make sure it's set to "Always" (not "While Using"). Also make sure Motion & Fitness is enabled. On Android, check that battery optimization is disabled for the app.</p>
+    <h3>GPS isn't detecting my trips. What should I do?</h3>
+    <p>Check your location permissions: Settings → Privacy → Location Services → REPSPilot → set to "Always" (not "While Using"). Also ensure Motion & Fitness is enabled. On Android, disable battery optimization for the app in Settings → Battery → REPSPilot.</p>
   </div>
 
   <div class="faq-item">
     <h3>Are my personal trip routes stored?</h3>
-    <p>No. If you classify a trip as personal, the route data is immediately and permanently deleted. We never store routes for personal trips. Only work-classified trips have their routes retained, and only for the purpose of IRS mileage documentation.</p>
+    <p>No. If you classify a trip as personal, the route data is immediately and permanently deleted. Only work-classified trips retain their route data, used solely for IRS mileage documentation.</p>
   </div>
 
   <div class="faq-item">
@@ -105,40 +81,41 @@
 
   <div class="faq-item">
     <h3>What is the 750-hour test?</h3>
-    <p>Under IRC §469(c)(7), to qualify for Real Estate Professional Status you must spend more than 750 hours per year in real property trades or businesses. REPS Shield tracks this in real time and shows your progress on the home screen. This is not tax advice — consult your CPA for your specific situation.</p>
+    <p>Under IRC §469(c)(7), to qualify for Real Estate Professional Status you must spend more than 750 hours per year in real property trades or businesses. REPSPilot tracks this in real time on your home screen. This is not tax advice — consult your CPA for your specific situation.</p>
   </div>
 
   <div class="faq-item">
-    <h3>Can I use REPS Shield on multiple devices?</h3>
-    <p>Yes. Your account syncs across devices in real time. Log on your phone, review on your desktop dashboard, generate exports anywhere.</p>
+    <h3>What makes REPSPilot different from REPSLog or REPS Audit Ready?</h3>
+    <p>REPSPilot is the only REPS tracker with passive GPS trip detection. Other apps require you to manually log every visit or start a timer before you go. REPSPilot detects your property visits automatically in the background and asks you to confirm — the same way Strava tracks your runs without you pressing start. REPSPilot also includes tamper-evident monthly locking with SHA-256 hashing, which no competitor offers.</p>
   </div>
 
   <div class="faq-item">
-    <h3>How do I delete my account and data?</h3>
-    <p>Go to Settings → Data & Privacy → Delete Account. Type "DELETE" to confirm. All your data is permanently deleted within 30 days. This action cannot be undone.</p>
+    <h3>Can I use REPSPilot on multiple devices?</h3>
+    <p>Yes. Your account syncs in real time across all devices. Log on your phone, review on your desktop dashboard, generate exports anywhere.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How do I delete my account and all my data?</h3>
+    <p>Go to Settings → Data & Privacy → Delete Account. Type "DELETE" to confirm. All data is permanently deleted within 30 days. This action cannot be undone.</p>
   </div>
 
   <div class="faq-item">
     <h3>How long should I keep my REPS records?</h3>
-    <p>The IRS can audit returns up to 3 years back, or 6 years if there's a substantial understatement of income. We recommend retaining REPS records for at least 7 years. REPS Shield recommends this retention period but the decision is yours — you can delete records at any time.</p>
+    <p>The IRS can audit returns up to 3 years back, or 6 years if there's a substantial understatement of income. We recommend retaining REPS records for at least 7 years. REPSPilot defaults to this retention period, but you can delete records at any time.</p>
   </div>
 
   <div class="faq-item">
-    <h3>Is REPS Shield a tax filing tool?</h3>
-    <p>No. REPS Shield is a documentation and record-keeping tool only. It does not file taxes, provide tax advice, or guarantee IRS qualification. Always work with a qualified CPA or tax attorney for your specific situation.</p>
+    <h3>Is REPSPilot a tax filing tool?</h3>
+    <p>No. REPSPilot is a documentation and record-keeping tool only. It does not file taxes, provide tax advice, or guarantee IRS qualification. Always work with a qualified CPA or tax attorney for your specific situation.</p>
   </div>
-
 </div>
 
 <footer>
-  <a class="logo" href="index.html">REPS SHIELD</a>
-  <p>© 2026 REPS Shield. All rights reserved.</p>
-  <div>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-    <a href="support.html">Support</a>
-  </div>
+  <a class="footer-logo" href="index.html">REPS<span>PILOT</span></a>
+  <p>© 2026 REPSPilot. All rights reserved.</p>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Service</a>
+  <a href="support.html">Support</a>
 </footer>
-
 </body>
 </html>

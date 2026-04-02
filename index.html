@@ -3,280 +3,186 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REPS Shield — Your REPS Audit Pack, On Autopilot</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<title>REPSPilot — The Only REPS Tracker That Finds Your Hours Before You Open the App</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
     --green: #00FF6A;
     --black: #111111;
     --tan: #F5F0EB;
     --tan-dark: #EDE8E2;
     --text: #2A2520;
-    --muted: #5A5450;
+    --muted: #6A6460;
+    --card: #1A1A1A;
+    --border: #2A2A2A;
   }
+  body { font-family: 'DM Sans', sans-serif; background: var(--tan); color: var(--text); }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--tan);
-    color: var(--text);
-  }
-
+  /* NAV */
   nav {
-    background: var(--black);
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 3px solid var(--green);
+    background: var(--black); padding: 18px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 2px solid var(--green); position: sticky; top: 0; z-index: 100;
   }
-
-  .logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--green);
-    letter-spacing: 3px;
-    text-decoration: none;
-  }
-
-  nav a {
-    color: #BBBBBB;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    margin-left: 32px;
-    transition: color 0.2s;
-  }
-
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--green); letter-spacing: 4px; text-decoration: none; }
+  .logo span { color: #fff; }
+  nav a { color: #AAA; text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 32px; transition: color 0.2s; }
   nav a:hover { color: var(--green); }
 
-  .hero {
-    background: var(--black);
-    padding: 100px 40px;
-    text-align: center;
-    border-bottom: 3px solid var(--green);
+  /* HERO */
+  .hero { background: var(--black); padding: 120px 48px 100px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 800px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,255,106,0.08) 0%, transparent 70%);
+    pointer-events: none;
   }
-
+  .hero-eyebrow {
+    display: inline-block; background: rgba(0,255,106,0.12); border: 1px solid rgba(0,255,106,0.3);
+    color: var(--green); font-size: 12px; font-weight: 600; letter-spacing: 3px;
+    padding: 6px 16px; border-radius: 100px; margin-bottom: 28px; text-transform: uppercase;
+  }
   .hero h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px, 8vw, 96px);
-    color: #fff;
-    letter-spacing: 4px;
-    line-height: 1;
-    margin-bottom: 16px;
+    font-size: clamp(52px, 7vw, 88px);
+    color: #fff; letter-spacing: 2px; line-height: 1.05; margin-bottom: 24px;
   }
-
-  .hero h1 span { color: var(--green); }
-
-  .hero p {
-    font-size: 20px;
-    color: #BBBBBB;
-    max-width: 600px;
-    margin: 0 auto 40px;
-    line-height: 1.6;
-  }
-
-  .btn-row {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
+  .hero h1 em { color: var(--green); font-style: normal; }
+  .hero p { font-size: 19px; color: #AAA; max-width: 580px; margin: 0 auto 16px; line-height: 1.7; }
+  .hero .subtext { font-size: 14px; color: #666; margin-bottom: 48px; }
+  .hero .subtext strong { color: #AAA; }
+  .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px; }
   .btn-primary {
-    background: var(--green);
-    color: var(--black);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    letter-spacing: 2px;
-    padding: 16px 40px;
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    transition: opacity 0.2s;
+    background: var(--green); color: var(--black);
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px;
+    padding: 16px 44px; border-radius: 8px; text-decoration: none; transition: opacity 0.2s;
   }
-
   .btn-primary:hover { opacity: 0.85; }
-
   .btn-secondary {
-    background: transparent;
-    color: var(--green);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    letter-spacing: 2px;
-    padding: 16px 40px;
-    border: 2px solid var(--green);
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s;
+    background: transparent; color: var(--green);
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 2px;
+    padding: 16px 44px; border: 2px solid var(--green); border-radius: 8px; text-decoration: none; transition: background 0.2s;
   }
-
-  .btn-secondary:hover { background: rgba(0,255,106,0.1); }
-
-  .features {
-    padding: 80px 40px;
-    max-width: 1100px;
-    margin: 0 auto;
+  .btn-secondary:hover { background: rgba(0,255,106,0.08); }
+  .competitor-bar {
+    display: flex; align-items: center; justify-content: center; gap: 32px;
+    border-top: 1px solid #222; padding-top: 48px; flex-wrap: wrap;
   }
-
-  .features h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    letter-spacing: 3px;
-    color: var(--black);
-    text-align: center;
-    margin-bottom: 60px;
+  .competitor-bar p { color: #444; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .vs-badge {
+    background: var(--green); color: var(--black); font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px; letter-spacing: 2px; padding: 4px 12px; border-radius: 4px;
   }
+  .competitor-item { color: #555; font-size: 14px; }
+  .competitor-item s { color: #444; }
 
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+  /* DIFFERENTIATOR BANNER */
+  .diff-banner {
+    background: var(--green); padding: 20px 48px;
+    display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
   }
+  .diff-banner p { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--black); letter-spacing: 2px; }
+  .diff-banner span { font-size: 20px; }
 
-  .feature-card {
-    background: var(--black);
-    border-radius: 16px;
-    padding: 32px;
+  /* FEATURES */
+  .features { padding: 96px 48px; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 4px; color: var(--green); margin-bottom: 12px; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 2px; color: var(--black); margin-bottom: 16px; line-height: 1; }
+  .section-sub { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.7; margin-bottom: 56px; }
+
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .feature-card { background: var(--black); border-radius: 16px; padding: 32px; border: 1px solid var(--border); transition: border-color 0.2s; }
+  .feature-card:hover { border-color: rgba(0,255,106,0.3); }
+  .feature-card.hero-feature { border-color: var(--green); }
+  .feature-tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--green); text-transform: uppercase; margin-bottom: 16px; }
+  .feature-icon { font-size: 28px; margin-bottom: 12px; }
+  .feature-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #fff; letter-spacing: 1px; margin-bottom: 10px; }
+  .feature-card p { font-size: 14px; color: #888; line-height: 1.7; }
+  .feature-card .competitor-note { font-size: 12px; color: #555; margin-top: 12px; font-style: italic; }
+
+  /* COMPARISON */
+  .comparison { background: var(--black); padding: 96px 48px; border-top: 2px solid #1A1A1A; border-bottom: 2px solid #1A1A1A; }
+  .comparison-inner { max-width: 900px; margin: 0 auto; }
+  .comparison .section-label { color: var(--green); }
+  .comparison .section-title { color: #fff; }
+  .comparison-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+  .comparison-table th { font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 2px; padding: 16px 20px; text-align: center; }
+  .comparison-table th:first-child { text-align: left; color: #666; }
+  .comparison-table th.us { color: var(--green); border-bottom: 2px solid var(--green); }
+  .comparison-table th.them { color: #555; }
+  .comparison-table td { padding: 14px 20px; border-bottom: 1px solid #1A1A1A; font-size: 14px; color: #888; text-align: center; }
+  .comparison-table td:first-child { text-align: left; color: #AAA; }
+  .comparison-table .check { color: var(--green); font-size: 18px; }
+  .comparison-table .cross { color: #444; font-size: 18px; }
+
+  /* PRICING */
+  .pricing { padding: 96px 48px; max-width: 1000px; margin: 0 auto; }
+  .toggle-row { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
+  .toggle-label { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .toggle-label.active { color: var(--text); }
+  .toggle {
+    width: 52px; height: 28px; background: var(--green); border-radius: 100px;
+    cursor: pointer; position: relative; transition: background 0.2s;
   }
-
-  .feature-icon {
-    font-size: 32px;
-    margin-bottom: 16px;
+  .toggle::after {
+    content: ''; position: absolute; top: 4px; left: 4px;
+    width: 20px; height: 20px; border-radius: 50%; background: var(--black); transition: transform 0.2s;
   }
+  .toggle.monthly { background: #333; }
+  .toggle.monthly::after { transform: translateX(0); }
+  .toggle.annual::after { transform: translateX(24px); }
+  .save-badge { background: var(--green); color: var(--black); font-size: 11px; font-weight: 700; letter-spacing: 1px; padding: 3px 8px; border-radius: 4px; }
 
-  .feature-card h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--green);
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .pricing-card { background: var(--black); border-radius: 20px; padding: 36px; border: 1px solid var(--border); position: relative; }
+  .pricing-card.featured { border: 2px solid var(--green); }
+  .popular-tag {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--green); color: var(--black); font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px; letter-spacing: 2px; padding: 4px 16px; border-radius: 100px; white-space: nowrap;
   }
-
-  .feature-card p {
-    font-size: 15px;
-    color: #BBBBBB;
-    line-height: 1.6;
+  .pricing-tier { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: #666; text-transform: uppercase; margin-bottom: 8px; }
+  .pricing-price { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: #fff; line-height: 1; }
+  .pricing-card.featured .pricing-price { color: var(--green); }
+  .pricing-period { font-size: 13px; color: #555; margin-bottom: 8px; }
+  .pricing-annual { font-size: 13px; color: #666; margin-bottom: 28px; min-height: 20px; }
+  .pricing-annual strong { color: var(--green); }
+  .pricing-divider { border: none; border-top: 1px solid #222; margin-bottom: 24px; }
+  .pricing-features { list-style: none; margin-bottom: 32px; }
+  .pricing-features li { font-size: 14px; color: #888; padding: 7px 0; border-bottom: 1px solid #1A1A1A; }
+  .pricing-features li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+  .pricing-features li.highlight { color: #fff; }
+  .pricing-btn {
+    display: block; text-align: center; padding: 14px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 2px;
+    border-radius: 8px; text-decoration: none; transition: opacity 0.2s;
+    background: #222; color: #888;
   }
+  .pricing-card.featured .pricing-btn { background: var(--green); color: var(--black); }
+  .pricing-btn:hover { opacity: 0.85; }
 
-  .pricing {
-    background: var(--black);
-    padding: 80px 40px;
-    border-top: 3px solid var(--green);
-    border-bottom: 3px solid var(--green);
-  }
+  /* FOOTER */
+  footer { background: var(--black); padding: 48px; text-align: center; border-top: 2px solid var(--green); }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--green); letter-spacing: 4px; display: block; margin-bottom: 12px; text-decoration: none; }
+  .footer-logo span { color: #fff; }
+  footer p { color: #555; font-size: 13px; margin-bottom: 16px; }
+  footer nav a { color: #666; text-decoration: none; margin: 0 16px; font-size: 13px; }
+  footer nav a:hover { color: var(--green); }
+  .disclaimer { background: #0A0A0A; padding: 16px 48px; text-align: center; font-size: 11px; color: #444; border-top: 1px solid #1A1A1A; }
 
-  .pricing h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    color: var(--green);
-    letter-spacing: 3px;
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 24px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .pricing-card {
-    background: #1A1A1A;
-    border-radius: 16px;
-    padding: 32px;
-    border: 1px solid #333;
-  }
-
-  .pricing-card.featured {
-    border: 2px solid var(--green);
-  }
-
-  .pricing-card .tier {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 18px;
-    color: #BBBBBB;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-  }
-
-  .pricing-card .price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    color: #fff;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .pricing-card.featured .price { color: var(--green); }
-
-  .pricing-card .period {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 24px;
-  }
-
-  .pricing-card ul {
-    list-style: none;
-    margin-bottom: 24px;
-  }
-
-  .pricing-card ul li {
-    font-size: 14px;
-    color: #BBBBBB;
-    padding: 6px 0;
-    border-bottom: 1px solid #222;
-  }
-
-  .pricing-card ul li::before {
-    content: "✓ ";
-    color: var(--green);
-    font-weight: 700;
-  }
-
-  footer {
-    background: var(--black);
-    padding: 40px;
-    text-align: center;
-    border-top: 3px solid var(--green);
-  }
-
-  footer .logo { display: block; margin-bottom: 16px; }
-
-  footer p {
-    color: #666;
-    font-size: 13px;
-    margin-bottom: 8px;
-  }
-
-  footer a {
-    color: #BBBBBB;
-    text-decoration: none;
-    margin: 0 16px;
-    font-size: 13px;
-  }
-
-  footer a:hover { color: var(--green); }
-
-  .disclaimer {
-    background: var(--tan-dark);
-    padding: 20px 40px;
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    border-top: 1px solid #CCC7C0;
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 80px 20px 60px; }
+    .features, .pricing { padding: 60px 20px; }
+    .comparison { padding: 60px 20px; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="logo" href="index.html">REPS SHIELD</a>
+  <a class="logo" href="index.html">REPS<span>PILOT</span></a>
   <div>
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
@@ -286,116 +192,251 @@
 </nav>
 
 <section class="hero">
-  <h1>Your REPS Audit Pack,<br><span>On Autopilot.</span></h1>
-  <p>The only Real Estate Professional Status tracker with passive GPS trip detection, geofence visit capture, and one-click IRS audit packs.</p>
+  <div class="hero-eyebrow">Next-Generation REPS Tracking</div>
+  <h1>The Only REPS Tracker That<br>Finds Your Hours <em>Before</em><br>You Open the App.</h1>
+  <p>Other apps wait for you to log. REPSPilot detects your property visits automatically using GPS — then asks you to confirm.</p>
+  <p class="subtext">Built for IRS audit defense. <strong>Tamper-evident records. One-click CPA export.</strong></p>
   <div class="btn-row">
     <a href="#" class="btn-primary">Download on App Store</a>
     <a href="#" class="btn-secondary">Get it on Google Play</a>
   </div>
+  <div class="competitor-bar">
+    <p>vs. the competition</p>
+    <div class="vs-badge">VS</div>
+    <span class="competitor-item"><s>REPSLog</s> — manual logging only</span>
+    <span class="competitor-item"><s>REPS Audit Ready</s> — no GPS detection</span>
+    <span class="competitor-item"><s>REPSShield</s> — no auto-tracking</span>
+  </div>
 </section>
 
+<div class="diff-banner">
+  <span>🛰️</span>
+  <p>REPSPilot uses background GPS to detect property visits automatically — like Strava for your real estate hours.</p>
+  <span>🛰️</span>
+</div>
+
 <section class="features">
-  <h2>Everything Your CPA Needs</h2>
+  <div class="section-label">Why REPSPilot</div>
+  <h2 class="section-title">Everything Your CPA<br>Needs to Defend Your REPS</h2>
+  <p class="section-sub">Three competitors exist. None of them detect your trips automatically. REPSPilot is the only app built around passive GPS — the way REPS tracking should work.</p>
+
   <div class="feature-grid">
-    <div class="feature-card">
+    <div class="feature-card hero-feature">
+      <div class="feature-tag">⚡ Our Killer Feature</div>
       <div class="feature-icon">🛰️</div>
-      <h3>Passive GPS Tracking</h3>
-      <p>Automatically detects when you drive to your properties — just like Strava tracks runs. No manual logging required.</p>
+      <h3>Passive GPS Trip Detection</h3>
+      <p>REPSPilot runs silently in the background. When you drive to a rental property, it detects the visit automatically and prompts you to classify it. Zero manual logging required.</p>
+      <p class="competitor-note">No competitor offers this. You're the only one.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🏠</div>
       <h3>Property Geofencing</h3>
-      <p>Silently detects when you arrive and leave each property. Prompts you to classify the visit in seconds.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <h3>Three IRS Tests Tracked</h3>
-      <p>750-Hour Test, 50% Test, and Material Participation — all calculated in real time, always visible.</p>
+      <p>Set a geofence around each property. REPSPilot silently detects when you arrive and leave — capturing the exact time you spent on-site.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🔒</div>
       <h3>Tamper-Evident Locking</h3>
-      <p>Lock each month with a SHA-256 audit hash. CPAs trust records they can verify haven't been backdated.</p>
+      <p>Lock each month with a SHA-256 cryptographic hash. CPAs and IRS agents can verify your records haven't been backdated or altered.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">📄</div>
       <h3>One-Click CPA Export</h3>
-      <p>Generate a complete PDF audit pack with all seven IRS-required sections. Share via secure link in one tap.</p>
+      <p>Generate a complete IRS-ready audit pack — PDF, CSV, and ZIP — covering all three REPS tests. Share via secure link in one tap.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">📱</div>
+      <div class="feature-icon">📊</div>
+      <h3>Three IRS Tests, Live</h3>
+      <p>750-Hour Test, 50% Test, and Material Participation tracked in real time. Your audit readiness score updates every time you log an activity.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🖥️</div>
       <h3>Web Dashboard</h3>
-      <p>Batch review drafts, manage properties, and generate reports from your desktop — your command center.</p>
+      <p>Review drafts, manage properties, generate export packs, and invite your CPA — all from your desktop. Your command center for tax season.</p>
     </div>
   </div>
 </section>
 
+<section class="comparison">
+  <div class="comparison-inner">
+    <div class="section-label">Head-to-Head</div>
+    <h2 class="section-title" style="color:#fff;">REPSPilot vs. The Competition</h2>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="us">REPSPilot</th>
+          <th class="them">REPSLog</th>
+          <th class="them">REPS Audit Ready</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Passive GPS trip detection</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Property geofencing</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Tamper-evident monthly locking</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>SHA-256 audit hash</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>One-click CPA export pack</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+        <tr>
+          <td>Audit readiness score</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Web dashboard</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Calendar sync</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+        </tr>
+        <tr>
+          <td>Manual logging</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section class="pricing">
-  <h2>Simple Pricing</h2>
+  <div class="section-label">Pricing</div>
+  <h2 class="section-title">Simple, Honest Pricing</h2>
+  <p class="section-sub">Save $20,000+ per year in taxes. Pay $249/year for the tool that makes it defensible.</p>
+
+  <div class="toggle-row">
+    <span class="toggle-label">Monthly</span>
+    <div class="toggle annual" id="toggle"></div>
+    <span class="toggle-label active">Annual <span class="save-badge">SAVE 30%</span></span>
+  </div>
+
   <div class="pricing-grid">
     <div class="pricing-card">
-      <div class="tier">FREE</div>
-      <div class="price">$0</div>
-      <div class="period">forever · 1 property</div>
-      <ul>
-        <li>Manual logging</li>
+      <div class="pricing-tier">Manual</div>
+      <div class="pricing-price" id="price-manual">$99</div>
+      <div class="pricing-period">per year</div>
+      <div class="pricing-annual" id="annual-manual">or <strong>$12/mo</strong> billed monthly</div>
+      <hr class="pricing-divider">
+      <ul class="pricing-features">
+        <li>Manual activity logging</li>
         <li>Timer mode</li>
-        <li>Basic dashboard</li>
-        <li>CSV export</li>
-      </ul>
-    </div>
-    <div class="pricing-card">
-      <div class="tier">STARTER</div>
-      <div class="price">$9</div>
-      <div class="period">per month · up to 3 properties</div>
-      <ul>
-        <li>GPS trip detection</li>
-        <li>Property geofencing</li>
         <li>Calendar sync</li>
-        <li>Mileage log</li>
+        <li>3 IRS tests tracked</li>
+        <li>Basic CPA export</li>
+        <li>Up to 3 properties</li>
       </ul>
+      <a href="#" class="pricing-btn">Get Started</a>
     </div>
+
     <div class="pricing-card featured">
-      <div class="tier">PRO</div>
-      <div class="price">$17</div>
-      <div class="period">per month · up to 10 properties</div>
-      <ul>
-        <li>Everything in Starter</li>
-        <li>Email ingestion</li>
-        <li>Web dashboard</li>
-        <li>Monthly locking</li>
+      <div class="popular-tag">MOST POPULAR</div>
+      <div class="pricing-tier">Autopilot</div>
+      <div class="pricing-price" id="price-autopilot">$249</div>
+      <div class="pricing-period">per year</div>
+      <div class="pricing-annual" id="annual-autopilot">or <strong>$29/mo</strong> billed monthly</div>
+      <hr class="pricing-divider">
+      <ul class="pricing-features">
+        <li class="highlight">🛰️ Passive GPS trip detection</li>
+        <li class="highlight">🏠 Property geofencing</li>
+        <li class="highlight">🔒 Tamper-evident locking</li>
+        <li>Everything in Manual</li>
+        <li>Unlimited properties</li>
         <li>Full CPA export pack</li>
         <li>Audit readiness score</li>
+        <li>Web dashboard</li>
+        <li>Email ingestion</li>
       </ul>
+      <a href="#" class="pricing-btn">Start Free Trial</a>
     </div>
+
     <div class="pricing-card">
-      <div class="tier">CPA PARTNER</div>
-      <div class="price">$49</div>
-      <div class="period">per month · unlimited</div>
-      <ul>
+      <div class="pricing-tier">CPA Partner</div>
+      <div class="pricing-price" id="price-cpa">$699</div>
+      <div class="pricing-period">per year</div>
+      <div class="pricing-annual" id="annual-cpa">or <strong>$79/mo</strong> billed monthly</div>
+      <hr class="pricing-divider">
+      <ul class="pricing-features">
+        <li>Everything in Autopilot</li>
         <li>Multi-client dashboard</li>
         <li>White-label exports</li>
-        <li>Client portal</li>
+        <li>Client portal access</li>
+        <li>Bulk export packs</li>
         <li>Priority support</li>
       </ul>
+      <a href="#" class="pricing-btn">Contact Us</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <a class="logo" href="index.html">REPS SHIELD</a>
-  <p>© 2026 REPS Shield. All rights reserved.</p>
-  <div>
+  <a class="footer-logo" href="index.html">REPS<span>PILOT</span></a>
+  <p>© 2026 REPSPilot. All rights reserved.</p>
+  <nav>
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Service</a>
     <a href="support.html">Support</a>
-  </div>
+  </nav>
 </footer>
 
 <div class="disclaimer">
-  REPS Shield is a documentation tool only and does not provide tax or legal advice.
-  Consult a qualified CPA or tax attorney regarding your specific REPS qualification situation.
+  REPSPilot is a documentation tool only and does not provide tax or legal advice. Always consult a qualified CPA or tax attorney regarding your Real Estate Professional Status qualification.
 </div>
+
+<script>
+  const toggle = document.getElementById('toggle');
+  const prices = {
+    manual: { annual: '$99', monthly: '$12' },
+    autopilot: { annual: '$249', monthly: '$29' },
+    cpa: { annual: '$699', monthly: '$79' }
+  };
+  let isAnnual = true;
+
+  toggle.addEventListener('click', () => {
+    isAnnual = !isAnnual;
+    toggle.className = 'toggle ' + (isAnnual ? 'annual' : 'monthly');
+
+    document.getElementById('price-manual').textContent = isAnnual ? prices.manual.annual : prices.manual.monthly;
+    document.getElementById('price-autopilot').textContent = isAnnual ? prices.autopilot.annual : prices.autopilot.monthly;
+    document.getElementById('price-cpa').textContent = isAnnual ? prices.cpa.annual : prices.cpa.monthly;
+
+    document.getElementById('annual-manual').innerHTML = isAnnual ? 'or <strong>$12/mo</strong> billed monthly' : '<strong>$99/yr</strong> billed annually — save 30%';
+    document.getElementById('annual-autopilot').innerHTML = isAnnual ? 'or <strong>$29/mo</strong> billed monthly' : '<strong>$249/yr</strong> billed annually — save 30%';
+    document.getElementById('annual-cpa').innerHTML = isAnnual ? 'or <strong>$79/mo</strong> billed monthly' : '<strong>$699/yr</strong> billed annually — save 30%';
+
+    const periods = document.querySelectorAll('.pricing-period');
+    periods.forEach(p => p.textContent = isAnnual ? 'per year' : 'per month');
+  });
+</script>
 
 </body>
 </html>

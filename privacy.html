@@ -3,58 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — REPS Shield</title>
+<title>Privacy Policy — REPSPilot</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --green: #00FF6A;
-    --black: #111111;
-    --tan: #F5F0EB;
-    --tan-dark: #EDE8E2;
-    --text: #2A2520;
-    --muted: #5A5450;
-  }
+  :root { --green: #00FF6A; --black: #111111; --tan: #F5F0EB; --tan-dark: #EDE8E2; --text: #2A2520; --muted: #6A6460; }
   body { font-family: 'DM Sans', sans-serif; background: var(--tan); color: var(--text); }
-  nav {
-    background: var(--black); padding: 20px 40px;
-    display: flex; justify-content: space-between; align-items: center;
-    border-bottom: 3px solid var(--green);
-  }
-  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--green); letter-spacing: 3px; text-decoration: none; }
-  nav a { color: #BBBBBB; text-decoration: none; font-size: 14px; font-weight: 600; margin-left: 32px; }
+  nav { background: var(--black); padding: 18px 48px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--green); }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--green); letter-spacing: 4px; text-decoration: none; }
+  .logo span { color: #fff; }
+  nav a { color: #AAA; text-decoration: none; font-size: 14px; font-weight: 500; margin-left: 32px; }
   nav a:hover { color: var(--green); }
-  .page-header {
-    background: var(--black); padding: 60px 40px;
-    border-bottom: 3px solid var(--green); text-align: center;
-  }
-  .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: var(--green); letter-spacing: 4px; }
-  .page-header p { color: #BBBBBB; margin-top: 8px; font-size: 15px; }
-  .content { max-width: 800px; margin: 60px auto; padding: 0 40px 60px; }
-  h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: var(--black); margin: 40px 0 16px; }
+  .page-header { background: var(--black); padding: 72px 48px; border-bottom: 2px solid var(--green); text-align: center; }
+  .page-header h1 { font-family: 'Bebas Neue', sans-serif; font-size: 60px; color: var(--green); letter-spacing: 4px; }
+  .page-header p { color: #666; margin-top: 8px; font-size: 14px; }
+  .content { max-width: 760px; margin: 64px auto; padding: 0 40px 80px; }
+  h2 { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; color: var(--black); margin: 48px 0 16px; }
   p { font-size: 15px; line-height: 1.8; color: var(--text); margin-bottom: 16px; }
-  ul { margin: 0 0 16px 24px; }
-  ul li { font-size: 15px; line-height: 1.8; color: var(--text); margin-bottom: 6px; }
-  .highlight {
-    background: var(--black); border-radius: 12px; padding: 24px 28px; margin: 24px 0;
-    border-left: 4px solid var(--green);
-  }
-  .highlight p { color: #BBBBBB; margin: 0; }
+  ul { margin: 0 0 20px 24px; }
+  ul li { font-size: 15px; line-height: 1.8; color: var(--text); margin-bottom: 8px; }
+  .highlight { background: var(--black); border-radius: 12px; padding: 24px 28px; margin: 28px 0; border-left: 4px solid var(--green); }
+  .highlight p { color: #AAA; margin: 0; }
   .highlight strong { color: var(--green); }
-  footer {
-    background: var(--black); padding: 40px; text-align: center;
-    border-top: 3px solid var(--green);
-  }
-  footer .logo { display: block; margin-bottom: 16px; }
-  footer p { color: #666; font-size: 13px; margin-bottom: 8px; }
-  footer a { color: #BBBBBB; text-decoration: none; margin: 0 16px; font-size: 13px; }
+  footer { background: var(--black); padding: 40px; text-align: center; border-top: 2px solid var(--green); }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--green); letter-spacing: 4px; display: block; margin-bottom: 12px; text-decoration: none; }
+  .footer-logo span { color: #fff; }
+  footer p { color: #555; font-size: 13px; margin-bottom: 12px; }
+  footer a { color: #666; text-decoration: none; margin: 0 16px; font-size: 13px; }
   footer a:hover { color: var(--green); }
 </style>
 </head>
 <body>
-
 <nav>
-  <a class="logo" href="index.html">REPS SHIELD</a>
+  <a class="logo" href="index.html">REPS<span>PILOT</span></a>
   <div>
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
@@ -69,20 +50,19 @@
 </div>
 
 <div class="content">
-
   <div class="highlight">
     <p><strong>The short version:</strong> We collect your location data only for trips you classify as work-related. Personal trip routes are never stored. We never sell your data. You can delete everything at any time.</p>
   </div>
 
   <h2>Who We Are</h2>
-  <p>REPS Shield is a tax documentation tool for real estate investors. We help users track their hours, trips, and activities to document Real Estate Professional Status (REPS) under IRC §469(c)(7). We are not a tax advisor.</p>
+  <p>REPSPilot is a tax documentation tool for real estate investors. We help users track hours, trips, and activities to document Real Estate Professional Status (REPS) under IRC §469(c)(7). We are not a tax advisor.</p>
 
   <h2>What Data We Collect</h2>
   <ul>
     <li><strong>Account information:</strong> Your email address and name when you create an account.</li>
-    <li><strong>Precise location data:</strong> GPS coordinates when you drive to rental properties. This is the core feature of the app — it allows us to automatically detect property visits and log trips. Location is collected in the background when you enable Autopilot tracking.</li>
-    <li><strong>Activity logs:</strong> Time entries, trip records, and property visit sessions that you create or that are auto-detected.</li>
-    <li><strong>Calendar events:</strong> If you connect Google Calendar or Outlook, we read calendar events to create draft log entries. We never modify your calendar.</li>
+    <li><strong>Precise location data:</strong> GPS coordinates when you drive to rental properties. This is the core feature — it allows us to automatically detect property visits and log trips. Location is collected in the background when you enable Autopilot tracking.</li>
+    <li><strong>Activity logs:</strong> Time entries, trip records, and property visit sessions you create or that are auto-detected.</li>
+    <li><strong>Calendar events:</strong> If you connect Google Calendar or Outlook, we read events to create draft log entries. We never modify your calendar.</li>
     <li><strong>Evidence files:</strong> Photos, invoices, and documents you attach to log entries.</li>
     <li><strong>Device identifiers:</strong> For push notifications and crash reporting.</li>
     <li><strong>Usage data:</strong> How you use the app, for improving the product.</li>
@@ -92,13 +72,11 @@
   <ul>
     <li>Personal trip routes — if you classify a trip as personal, the route is immediately deleted and never stored.</li>
     <li>Location data during non-driving periods.</li>
-    <li>Your contacts.</li>
-    <li>Financial account information.</li>
-    <li>Passwords (handled securely by Supabase Auth).</li>
+    <li>Your contacts, financial account information, or passwords.</li>
   </ul>
 
   <div class="highlight">
-    <p><strong>Background location:</strong> REPS Shield uses background location access to detect when you drive to rental properties. This is the core value of the app — without it, you would have to manually log every trip. Location data is only stored for trips you classify as work-related. Personal trips are discarded immediately.</p>
+    <p><strong>Background location:</strong> REPSPilot uses background location to detect when you drive to rental properties. Location data is only stored for trips you classify as work-related. Personal trips are discarded immediately.</p>
   </div>
 
   <h2>How We Use Your Data</h2>
@@ -113,49 +91,40 @@
   <p>We do not sell, rent, or trade your personal information to any third party. Ever.</p>
 
   <h2>Data Sharing</h2>
-  <p>We share data only with the services required to operate the app:</p>
   <ul>
     <li><strong>Supabase:</strong> Secure database and authentication hosting.</li>
     <li><strong>Sentry:</strong> Crash reporting (no personal data, no location).</li>
     <li><strong>RevenueCat / Stripe:</strong> Subscription billing.</li>
-    <li><strong>ElevenLabs:</strong> Voice alerts (Pro tier only — text strings only, no personal data).</li>
+    <li><strong>ElevenLabs:</strong> Voice alerts (Autopilot tier only — text strings only, no personal data).</li>
   </ul>
 
   <h2>Data Retention</h2>
-  <p>We recommend retaining your REPS records for 7 years, consistent with the IRS audit window under IRC §6501. Your data is retained as long as your account is active. You can delete individual records or your entire account at any time.</p>
+  <p>We recommend retaining your REPS records for 7 years, consistent with the IRS audit window. Your data is retained as long as your account is active. You can delete individual records or your entire account at any time.</p>
 
   <h2>Your Rights (GDPR / CCPA)</h2>
   <ul>
     <li><strong>Access:</strong> Request a copy of all data we hold about you.</li>
-    <li><strong>Deletion:</strong> Delete your account and all associated data from Settings → Data & Privacy.</li>
-    <li><strong>Export:</strong> Download all your data as a JSON file from Settings.</li>
-    <li><strong>Correction:</strong> Edit any inaccurate data directly in the app.</li>
+    <li><strong>Deletion:</strong> Delete your account from Settings → Data & Privacy.</li>
+    <li><strong>Export:</strong> Download all your data as JSON from Settings.</li>
     <li><strong>Opt-out:</strong> Disable background location at any time from Settings → GPS Tracking.</li>
   </ul>
 
   <h2>Security</h2>
-  <p>All data is encrypted at rest using AES-256 and in transit using TLS. We use Row Level Security on our database, meaning users can only access their own data. Biometric authentication is available to protect access to the app.</p>
+  <p>All data is encrypted at rest using AES-256 and in transit using TLS. Row Level Security ensures users can only access their own data. Biometric authentication is available to protect app access.</p>
 
   <h2>Children</h2>
-  <p>REPS Shield is not directed at children under 18. We do not knowingly collect data from anyone under 18.</p>
-
-  <h2>Changes to This Policy</h2>
-  <p>We will notify you of material changes via email or in-app notification. Continued use of the app after changes constitutes acceptance.</p>
+  <p>REPSPilot is not directed at children under 18. We do not knowingly collect data from anyone under 18.</p>
 
   <h2>Contact</h2>
-  <p>For privacy questions or requests: <strong>privacy@repsshield.com</strong></p>
-
+  <p>For privacy questions: <strong>privacy@repspilot.app</strong></p>
 </div>
 
 <footer>
-  <a class="logo" href="index.html">REPS SHIELD</a>
-  <p>© 2026 REPS Shield. All rights reserved.</p>
-  <div>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-    <a href="support.html">Support</a>
-  </div>
+  <a class="footer-logo" href="index.html">REPS<span>PILOT</span></a>
+  <p>© 2026 REPSPilot. All rights reserved.</p>
+  <a href="privacy.html">Privacy Policy</a>
+  <a href="terms.html">Terms of Service</a>
+  <a href="support.html">Support</a>
 </footer>
-
 </body>
 </html>
